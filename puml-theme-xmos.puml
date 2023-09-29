@@ -252,8 +252,8 @@ skinparam participant {
 
 skinparam actor {
     $primary_scheme()
-    BackgroundColor $X_BLUE
-    BorderColor $X_BLUE
+    BackgroundColor $X_LIGHTGREEN
+    BorderColor $X_LIGHTGREEN
 }
 !endsub
 
@@ -449,7 +449,8 @@ skinparam object {
 skinparam usecase {
     $primary_scheme()
     BorderThickness 1
-    BorderColor $PRIMARY_DARK
+    BorderColor $X_LIGHTBLUE
+    BackgroundColor $X_LIGHTBLUE
     StereotypeFontColor $PRIMARY
 }
 !endsub
