@@ -1,7 +1,7 @@
 !$THEME = "xmos"
 
 !if %not(%variable_exists("$BGCOLOR"))
-!$BGCOLOR = "transparent"
+!$BGCOLOR = "white"
 !endif
 
 skinparam backgroundColor $BGCOLOR
@@ -276,9 +276,11 @@ skinparam sequence {
     StartColor $PRIMARY
     EndColor $PRIMARY
     ''
-    BoxBackgroundColor $LIGHT
+    BoxBackgroundColor $X_BLUE
     BoxBorderColor $GRAY
     BoxFontColor $DARK
+    ''
+    ArrowFontColor $X_DARKGREY
     ''
     DelayFontColor $DARK
     ''
@@ -286,14 +288,18 @@ skinparam sequence {
     LifeLineBorderThickness 2
     LifeLineBackgroundColor $SECONDARY_LIGHT
     ''
-    GroupBorderColor $GRAY
-    GroupFontColor $DARK
-    GroupHeaderFontColor $INFO
+    GroupBorderColor $SECONDARY_DARK
+    GroupFontColor $X_DARKGREY
+    GroupHeaderFontColor $WHITE
+    GroupHeaderFontStyle "Normal"
     ''
     DividerBackgroundColor $WHITE-$LIGHT
     DividerBorderColor $GRAY
     DividerBorderThickness 2
     DividerFontColor $DARK
+    ''
+    ParticipantBackgroundColor $X_BLUE
+    ParticipantFontColor $WHITE
     ''
     ReferenceBackgroundColor $BGCOLOR
     ReferenceBorderColor $GRAY
@@ -338,6 +344,8 @@ skinparam entity {
 
 skinparam boundary {
     $primary_scheme()
+    BackgroundColor $X_LIGHTGREEN
+    BorderColor $X_DARKGREEN
 }
 !endsub
 
@@ -354,9 +362,9 @@ skinparam agent {
 
 skinparam note {
     BorderThickness 1
-    BackgroundColor $INFO_LIGHT-$INFO
+    BackgroundColor $INFO_LIGHT
     BorderColor $INFO
-    FontColor $WHITE
+    FontColor $X_DARKGREY
 }
 !endsub
 
