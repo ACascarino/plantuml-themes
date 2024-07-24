@@ -114,14 +114,6 @@ skinparam useBetaStyle false
     FontColor $BGCOLOR
     FontStyle bold
   }
-  title {
-    FontSize 20
-    BorderRoundCorner            8
-    BorderThickness              1
-    BackgroundColor  $SECONDARY_LIGHT-$SECONDARY
-    FontColor $PRIMARY
-    BorderColor $SECONDARY
-  }
   nwdiagDiagram {
     network {
         $primary_scheme()    
@@ -183,7 +175,7 @@ skinparam useBetaStyle false
 ''
 skinparam defaultFontName        "Arial Nova Light"
 skinparam defaultFontSize        12
-skinparam dpi                    100
+skinparam dpi                    300
 skinparam shadowing              false
 skinparam roundcorner            20
 skinparam ParticipantPadding     30
@@ -203,12 +195,12 @@ skinparam stereotype {
     NBorderColor $INFO_DARK
 }
 skinparam title {
-    FontColor                     $SECONDARY_TEXT
-    BorderColor                     $SECONDARY
-    FontSize                     20
+    FontColor                    $X_DARKGREY
+    BorderColor                  $X_LIGHTGREY
+    FontSize                     16
     BorderRoundCorner            8
     BorderThickness              1
-    BackgroundColor              $SECONDARY_LIGHT
+    BackgroundColor              $X_DARKGREEN
 }
 
 
@@ -293,10 +285,11 @@ skinparam sequence {
     GroupHeaderFontColor $WHITE
     GroupHeaderFontStyle "Normal"
     ''
-    DividerBackgroundColor $WHITE-$LIGHT
+    DividerBackgroundColor $X_DARKGREEN
     DividerBorderColor $GRAY
     DividerBorderThickness 2
-    DividerFontColor $DARK
+    DividerFontColor $X_DARKGREY
+    DividerFontStyle "Normal"
     ''
     ParticipantBackgroundColor $X_BLUE
     ParticipantFontColor $WHITE
