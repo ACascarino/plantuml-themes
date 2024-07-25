@@ -294,10 +294,10 @@ skinparam sequence {
     ParticipantBackgroundColor $X_BLUE
     ParticipantFontColor $WHITE
     ''
-    ReferenceBackgroundColor $BGCOLOR
-    ReferenceBorderColor $GRAY
-    ReferenceFontColor $DARK
-    ReferenceHeaderFontColor $INFO
+    ReferenceBackgroundColor $WHITE
+    ReferenceBorderColor $X_DARKGREY
+    ReferenceFontColor $X_DARKGREY
+    ReferenceHeaderBackgroundColor $X_DARKGREEN
     ''
     StereotypeFontColor $PRIMARY_TEXT
 }
