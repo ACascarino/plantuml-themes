@@ -68,7 +68,7 @@ skinparam useBetaStyle false
 
 !procedure $primary_scheme()
     FontColor $PRIMARY_TEXT
-    BorderColor $PRIMARY_LIGHT
+    BorderColor $PRIMARY_DARK
     BackgroundColor $PRIMARY_LIGHT
 !endprocedure
 ''
@@ -255,6 +255,7 @@ skinparam arrow {
     Thickness 1
     Color $PRIMARY_DARK
     FontColor $FGCOLOR
+    LollipopColor $X_LIGHTGREEN
 }
 !endsub
 
@@ -373,7 +374,9 @@ skinparam artifact {
 !startsub component
 
 skinparam component {
-    $primary_scheme()
+    BackgroundColor  $X_BLUE
+    BorderColor  $X_DARKGREY
+    FontColor $WHITE
 }
 !endsub
 
