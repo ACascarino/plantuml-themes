@@ -440,10 +440,12 @@ skinparam class {
 !startsub object
 
 skinparam object {
-    $primary_scheme()
-    StereotypeFontColor $LIGHT
+    FontColor $WHITE
+    BorderColor $X_DARKGREY
+    BackgroundColor $X_BLUE
+    StereotypeFontColor $X_BLUE
     BorderThickness 1
-    AttributeFontColor $DARK
+    AttributeFontColor $WHITE
     AttributeFontSize 11
 }
 !endsub
