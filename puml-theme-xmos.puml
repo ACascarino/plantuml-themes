@@ -269,7 +269,7 @@ skinparam sequence {
     StartColor $PRIMARY
     EndColor $PRIMARY
     ''
-    BoxBackgroundColor $X_BLUE
+    BoxBackgroundColor $X_LIGHTGREY
     BoxBorderColor $GRAY
     BoxFontColor $DARK
     ''
