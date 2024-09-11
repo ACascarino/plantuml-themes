@@ -510,7 +510,7 @@ skinparam state {
     BorderColor $PRIMARY_DARK
     StartColor $INFO
     EndColor $INFO
-    AttributeFontColor $SECONDARY_TEXT
+    AttributeFontColor $PRIMARY_TEXT
     AttributeFontSize 11
 }
 !endsub
