@@ -181,6 +181,25 @@ skinparam roundcorner            20
 skinparam ParticipantPadding     30
 skinparam BoxPadding             30
 skinparam Padding                10
+
+' Default text alignment for multiline text
+skinparam defaultTextAlignment   left
+
+' Target for SVG links (_blank, _self, _parent, _top)
+skinparam svgLinkTarget          _blank
+
+' Allow mixing of PlantUML languages in one diagram
+skinparam allowmixing            true
+
+' Sets the number of spaces for a tab character
+skinparam tabSize                4
+
+' Max width for messages in sequence diagrams before wrapping
+skinparam maxMessageSize         150
+
+' Sets the style for guillemets (« and »)
+skinparam guillemet              false
+
 skinparam ArrowColor             $X_LIGHTGREEN
 skinparam stereotype {
     CBackgroundColor $SECONDARY_LIGHT
@@ -202,7 +221,6 @@ skinparam title {
     BorderThickness              1
     BackgroundColor              $X_DARKGREEN
 }
-
 
 skinparam legend {
     BackgroundColor $PRIMARY
@@ -227,8 +245,10 @@ skinparam activity {
     StartColor $INFO
     EndColor $INFO
     DiamondBackgroundColor $SECONDARY-$SECONDARY_DARK
-      DiamondBorderColor $SECONDARY_DARK
+    DiamondBorderColor $SECONDARY_DARK
     DiamondFontColor $SECONDARY_TEXT
+    ' Specific styling for arrows within activity diagrams
+    ArrowColor $PRIMARY_DARK
 }
 !endsub
 
@@ -246,6 +266,8 @@ skinparam actor {
     $primary_scheme()
     BackgroundColor $X_LIGHTGREEN
     BorderColor $X_LIGHTGREEN
+    ' Style for actor stereotype labels
+    StereotypeFontColor $PRIMARY_TEXT
 }
 !endsub
 
@@ -256,6 +278,8 @@ skinparam arrow {
     Color $PRIMARY_DARK
     FontColor $FGCOLOR
     LollipopColor $X_LIGHTGREEN
+    ' Style for message sequence numbers
+    MessageAlignment left
 }
 !endsub
 
@@ -270,12 +294,12 @@ skinparam sequence {
     EndColor $PRIMARY
     ''
     BoxBackgroundColor $X_LIGHTGREY
-    BoxBorderColor $GRAY
-    BoxFontColor $DARK
+    BoxBorderColor $X_DARKGREY
+    BoxFontColor $BLACK
     ''
     ArrowFontColor $X_DARKGREY
     ''
-    DelayFontColor $DARK
+    DelayFontColor $X_DARKGREY
     ''
     LifeLineBorderColor $SECONDARY_DARK
     LifeLineBorderThickness 2
@@ -287,7 +311,7 @@ skinparam sequence {
     GroupHeaderFontStyle "Normal"
     ''
     DividerBackgroundColor $X_DARKGREEN
-    DividerBorderColor $GRAY
+    DividerBorderColor $X_DARKGREY
     DividerBorderThickness 2
     DividerFontColor $X_DARKGREY
     DividerFontStyle "Normal"
@@ -301,6 +325,10 @@ skinparam sequence {
     ReferenceHeaderBackgroundColor $X_DARKGREEN
     ''
     StereotypeFontColor $PRIMARY_TEXT
+    ' How messages are aligned (left, right, center)
+    MessageAlign center
+    ' Alignment for participant names in the header
+    ParticipantAlign center
 }
 !endsub
 
@@ -359,6 +387,8 @@ skinparam note {
     BackgroundColor $INFO_LIGHT
     BorderColor $INFO
     FontColor $X_DARKGREY
+    ' Alignment of text within the note
+    TextAlignment left
 }
 !endsub
 
@@ -377,6 +407,8 @@ skinparam component {
     BackgroundColor  $X_BLUE
     BorderColor  $X_DARKGREY
     FontColor $WHITE
+    ' Style for component stereotype labels
+    StereotypeFontColor $WHITE
 }
 !endsub
 
@@ -393,7 +425,7 @@ skinparam interface {
 
 skinparam storage {
     BackgroundColor $WARNING_LIGHT-$WARNING
-      BorderColor $WARNING
+    BorderColor $WARNING
     FontColor $WARNING_TEXT
 }
 !endsub
@@ -434,6 +466,10 @@ skinparam class {
     BorderThickness 1
     AttributeFontColor $DARK
     AttributeFontSize 11
+    ' Alignment of attributes within the class
+    AttributeIconSize 0
+    ' Minimum width of a class diagram
+    MinClassWidth 100
 }
 !endsub
 
@@ -480,6 +516,8 @@ skinparam package {
     BackgroundColor $WHITE
     BorderColor $PRIMARY_DARK
     BorderThickness 2
+    ' Styling for the package title
+    TitleAlignment left
 }
 !endsub
 
@@ -487,7 +525,7 @@ skinparam package {
 
 skinparam folder {
     BackgroundColor $PRIMARY_LIGHT
-      BorderColor $WARNING
+    BorderColor $WARNING
     FontColor $WARNING
     BorderThickness 2
 }
@@ -497,7 +535,7 @@ skinparam folder {
 
 skinparam frame {
     BackgroundColor $PRIMARY_LIGHT
-      BorderColor $INFO
+    BorderColor $INFO
     FontColor $INFO
     BorderThickness 2
 }
@@ -512,6 +550,8 @@ skinparam state {
     EndColor $INFO
     AttributeFontColor $PRIMARY_TEXT
     AttributeFontSize 11
+    ' Specific arrow styling for state diagrams
+    ArrowColor $PRIMARY_DARK
 }
 !endsub
 
@@ -537,7 +577,6 @@ skinparam file {
     BackgroundColor $SECONDARY_LIGHT-$SECONDARY
     BorderColor $SECONDARY_DARK
     FontColor $SECONDARY_TEXT
-
 }
 !endsub
 
@@ -545,5 +584,57 @@ skinparam file {
 
 skinparam stack {
     $primary_scheme()
+}
+!endsub
+
+'
+' NEW DIAGRAM TYPES
+'
+!startsub archimate
+skinparam archimate {
+    ' General styling for Archimate diagrams
+    $primary_scheme()
+}
+!endsub
+
+!startsub mindmap
+skinparam mindmap {
+    ' General styling for MindMap diagrams
+    $primary_scheme()
+    ' Arrow styling for MindMap
+    ArrowColor $PRIMARY_DARK
+}
+!endsub
+
+!startsub timing
+skinparam timing {
+    ' General styling for Timing diagrams
+    $primary_scheme()
+    ' Font color for timing labels
+    FontColor $PRIMARY_TEXT
+    ' Background color for the timeline itself
+    BackgroundColor $BGCOLOR
+}
+!endsub
+
+!startsub json
+skinparam json {
+    ' Styling for keys in JSON diagrams
+    KeyFontColor $X_AUBERGINE
+    ' Styling for values in JSON diagrams
+    ValueFontColor $PRIMARY_TEXT
+    ' Styling for arrows/lines
+    ArrowColor $PRIMARY_DARK
+}
+!endsub
+
+!startsub yaml
+skinparam yaml {
+    ' Styling for keys in YAML diagrams
+    KeyFontColor $X_AUBERGINE
+    ' Styling for values in YAML diagrams
+    ValueFontColor $PRIMARY_TEXT
+    ' Styling for arrows/lines
+    ArrowColor $PRIMARY_DARK
 }
 !endsub
