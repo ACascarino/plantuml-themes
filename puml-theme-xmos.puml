@@ -1,58 +1,69 @@
 !$THEME = "xmos"
 
-!if %not(%variable_exists("$BGCOLOR"))
-!$BGCOLOR = "white"
-!endif
-
 skinparam backgroundColor $BGCOLOR
 skinparam useBetaStyle false
 
-!$X_DARKGREY = "#464749"
-!$X_LIGHTGREY = "#D1D3D4"
-!$X_BLUE = "#1399DB"
-!$X_LIGHTBLUE = "#44BBF1"
-!$X_DARKGREEN = "#99DA07"
-!$X_LIGHTGREEN = "#B8E720"
-!$X_TEAL = "#0B668F"
-!$X_MUSTARD = "#E7B320"
-!$X_AUBERGINE = "#8F0B65"
-!$X_DEEPPURPLE = "#4807DA"
-!$X_TERRACOTTA = "#E0691F"
-!$X_OAKGREEN = "#66800B"
-!$X_TEAMSPIRITED = "#3413DB"
-!$X_GREATPLACETOWORK = "#9813DB"
-!$X_ADAPTABLEANDINNOVATIVE = "#DB1399"
-!$X_PROUDBUTHUMBLE = "#DB5513"
-!$X_CUSTOMERFIRST = "#4464F1"
+!$X_DARKGREY = "#222222"
+!$X_LIGHTGREY = "#CCCCCC"
+
+!$X_BLUE = "#2B9CFF"
+!$X_BLUE80 = "#55B0FF"
+!$X_BLUE60 = "#80C4FF"
+!$X_BLUE30 = "#C0E2FF"
+
+!$X_GREEN = "#00C850"
+!$X_GREEN80 = "#33D373"
+!$X_GREEN60 = "#66DE96"
+!$X_GREEN30 = "#B3EFCB"
+
+!$X_BLUEACC = "#50D0F3"
+!$X_GREENACC = "#90F6B9"
+
+!$X_RED = "#FA8C82"
+!$X_ORANGE = "#FAB46E"
+!$X_YELLOW = "#FADC8C"
+!$X_PURPLE = "#C695FF"
+!$X_STEEL = "#9AB5C7"
 
 !$WHITE = "#FFFFFF"
 !$BLACK = "#000000"
 
+!if %not(%variable_exists("$BGCOLOR"))
+!$BGCOLOR = $WHITE
+!endif
 !$FGCOLOR = $DARK
-!$PRIMARY = $X_DARKGREY
-!$PRIMARY_LIGHT = $X_LIGHTGREY
+
+!$PRIMARY = $X_BLUE
+!$PRIMARY_LIGHT = $X_BLUE30
 !$PRIMARY_DARK = $X_DARKGREY
-!$PRIMARY_TEXT = $X_DARKGREY
-!$SECONDARY = $X_BLUE
-!$SECONDARY_LIGHT = $X_LIGHTBLUE
-!$SECONDARY_DARK = $X_BLUE
-!$SECONDARY_TEXT = $X_LIGHTGREY
-!$INFO = $X_DARKGREEN
-!$INFO_LIGHT = $X_LIGHTGREEN
-!$INFO_DARK = $X_DARKGREEN
-!$INFO_TEXT = $X_LIGHTGREY
-!$SUCCESS = "#339933"
-!$SUCCESS_LIGHT = "#5cad5c"
-!$SUCCESS_DARK = "#297a29"
-!$SUCCESS_TEXT = $WHITE
-!$WARNING = "#ffae42"
-!$WARNING_LIGHT = "#ffbe68"
-!$WARNING_DARK = "#cc8b35"
-!$WARNING_TEXT = $WHITE
-!$DANGER = "#ff3333"
-!$DANGER_LIGHT = "#ff5c5c"
-!$DANGER_DARK = "#cc2929"
-!$DANGER_TEXT = $WHITE
+!$PRIMARY_TEXT = $WHITE
+
+!$SECONDARY = $X_GREEN
+!$SECONDARY_LIGHT = $X_GREEN30
+!$SECONDARY_DARK = $X_DARKGREY
+!$SECONDARY_TEXT = $WHITE
+
+!$DARK_TEXT = $BLACK
+
+!$INFO = $X_STEEL
+!$INFO_LIGHT = $X_STEEL
+!$INFO_DARK = $X_DARKGREY
+!$INFO_TEXT = $BLACK
+
+!$SUCCESS = $X_PURPLE
+!$SUCCESS_LIGHT = $X_PURPLE
+!$SUCCESS_DARK = $X_DARKGREY
+!$SUCCESS_TEXT = $BLACK
+
+!$WARNING = $X_ORANGE
+!$WARNING_LIGHT = $X_YELLOW
+!$WARNING_DARK = $X_DARKGREY
+!$WARNING_TEXT = $BLACK
+
+!$DANGER = $X_RED
+!$DANGER_LIGHT = $X_ORANGE
+!$DANGER_DARK = $X_DARKGREY
+!$DANGER_TEXT = $BLACK
 
 !procedure $success($msg)
   <font color=$SUCCESS><b>$msg
@@ -69,7 +80,7 @@ skinparam useBetaStyle false
 !procedure $primary_scheme()
     FontColor $PRIMARY_TEXT
     BorderColor $PRIMARY_DARK
-    BackgroundColor $PRIMARY_LIGHT
+    BackgroundColor $PRIMARY
 !endprocedure
 ''
 '' Style settings
@@ -77,8 +88,8 @@ skinparam useBetaStyle false
 <style>
   root {
     BackgroundColor $BGCOLOR
-    FontColor $PRIMARY_TEXT
-    HyperLinkColor $X_BLUE
+    FontColor $DARK_TEXT
+    HyperLinkColor $X_BLUEACC
     LineColor $PRIMARY_DARK
     LineThickness 1
     Margin 10
@@ -86,8 +97,8 @@ skinparam useBetaStyle false
     Shadowing 0.0
   }
   node {
-   Padding 15
-   roundcorner 20
+   Padding 1
+   roundcorner 0
    BackgroundColor $PRIMARY
   }
   caption {
@@ -119,13 +130,13 @@ skinparam useBetaStyle false
         $primary_scheme()    
         LineColor $PRIMARY
         LineThickness 1.0
-        FontColor $PRIMARY_DARK
+        FontColor $PRIMARY_TEXT
     }
     server {
         $primary_scheme()
     }
     arrow {
-        FontColor $PRIMARY_DARK
+        FontColor $DARK_TEXT
         LineColor $PRIMARY_DARK
     }
     group {
@@ -138,20 +149,17 @@ skinparam useBetaStyle false
   }
   ganttDiagram {
     task {
-        $primary_scheme()
+        BackgroundColor $PRIMARY
         LineColor $PRIMARY
-        Margin 10
-        Padding 6
-    }
-    note {
-        FontColor $INFO_TEXT
-        LineColor $INFO_DARK
-        BackGroundColor $INFO
+        Margin 2
+        Padding 0
     }
     separator {
         LineColor $SECONDARY
-        BackGroundColor $SECONDARY-$SECONDARY_DARK
+        BackGroundColor $SECONDARY
         FontColor $SECONDARY_TEXT
+        Margin 2
+        Padding 0
     }
     milestone {
         FontColor $INFO
@@ -161,11 +169,11 @@ skinparam useBetaStyle false
         LineColor $SECONDARY_DARK
     }
     timeline {
-        BackgroundColor $SECONDARY
+        BackgroundColor $PRIMARY
         FontColor $SECONDARY_TEXT
     }
     closed {
-        BackgroundColor $WARNING_DARK
+        BackgroundColor $WARNING
         FontColor $WARNING_TEXT
     }
   }
@@ -173,11 +181,11 @@ skinparam useBetaStyle false
 ''
 '' Global Default Values
 ''
-skinparam defaultFontName        "Arial Nova Light"
+skinparam defaultFontName        "Manrope Medium"
 skinparam defaultFontSize        12
 skinparam dpi                    300
 skinparam shadowing              false
-skinparam roundcorner            20
+skinparam roundcorner            0
 skinparam ParticipantPadding     30
 skinparam BoxPadding             30
 skinparam Padding                10
@@ -200,26 +208,25 @@ skinparam maxMessageSize         150
 ' Sets the style for guillemets (« and »)
 skinparam guillemet              false
 
-skinparam ArrowColor             $X_LIGHTGREEN
+skinparam ArrowColor             $PRIMARY_DARK
 skinparam stereotype {
-    CBackgroundColor $SECONDARY_LIGHT
-    CBorderColor $SECONDARY_DARK
-    ABackgroundColor $SUCCESS_LIGHT
-    ABorderColor $SUCCESS_DARK
-    IBackgroundColor $DANGER_LIGHT
-    IBorderColor $DANGER_DARK
-    EBackgroundColor $WARNING_LIGHT
-    EBorderColor $WARNING_DARK
-    NBackgroundColor $INFO_LIGHT
-    NBorderColor $INFO_DARK
+    CBackgroundColor $X_RED
+    CBorderColor $PRIMARY_DARK
+    ABackgroundColor $X_ORANGE
+    ABorderColor $PRIMARY_DARK
+    IBackgroundColor $X_YELLOW
+    IBorderColor $PRIMARY_DARK
+    EBackgroundColor $X_PURPLE
+    EBorderColor $PRIMARY_DARK
+    NBackgroundColor $X_STEEL
+    NBorderColor $PRIMARY_DARK
 }
 skinparam title {
-    FontColor                    $X_DARKGREY
-    BorderColor                  $X_LIGHTGREY
+    FontColor                    $DARK_TEXT
+    BorderColor                  $PRIMARY
     FontSize                     16
-    BorderRoundCorner            8
+    BorderRoundCorner            0
     BorderThickness              1
-    BackgroundColor              $X_DARKGREEN
 }
 
 skinparam legend {
@@ -242,11 +249,12 @@ skinparam swimlane {
 skinparam activity {
     $primary_scheme()
     BarColor $SUCCESS
-    StartColor $INFO
-    EndColor $INFO
-    DiamondBackgroundColor $SECONDARY-$SECONDARY_DARK
-    DiamondBorderColor $SECONDARY_DARK
-    DiamondFontColor $SECONDARY_TEXT
+    StartColor $PRIMARY_DARK
+    EndColor $PRIMARY_DARK
+    BorderColor null
+    DiamondBackgroundColor $X_BLUEACC
+    DiamondBorderColor null
+    DiamondFontColor $DARK_TEXT
     ' Specific styling for arrows within activity diagrams
     ArrowColor $PRIMARY_DARK
 }
@@ -264,10 +272,10 @@ skinparam participant {
 
 skinparam actor {
     $primary_scheme()
-    BackgroundColor $X_LIGHTGREEN
-    BorderColor $X_LIGHTGREEN
+    BackgroundColor $X_GREENACC
+    BorderColor $X_GREENACC
     ' Style for actor stereotype labels
-    StereotypeFontColor $PRIMARY_TEXT
+    StereotypeFontColor $DARK_TEXT
 }
 !endsub
 
@@ -276,8 +284,8 @@ skinparam actor {
 skinparam arrow {
     Thickness 1
     Color $PRIMARY_DARK
-    FontColor $FGCOLOR
-    LollipopColor $X_LIGHTGREEN
+    FontColor $DARK_TEXT
+    LollipopColor $X_GREENACC
     ' Style for message sequence numbers
     MessageAlignment left
 }
@@ -293,38 +301,35 @@ skinparam sequence {
     StartColor $PRIMARY
     EndColor $PRIMARY
     ''
-    BoxBackgroundColor $X_LIGHTGREY
-    BoxBorderColor $X_DARKGREY
+    BoxBackgroundColor $PRIMARY
+    BoxBorderColor $PRIMARY_DARK
     BoxFontColor $BLACK
     ''
-    ArrowFontColor $X_DARKGREY
+    ArrowFontColor $DARK_TEXT
     ''
-    DelayFontColor $X_DARKGREY
+    DelayFontColor $DARK_TEXT
     ''
     LifeLineBorderColor $SECONDARY_DARK
     LifeLineBorderThickness 2
-    LifeLineBackgroundColor $SECONDARY_LIGHT
     ''
     GroupBorderColor $SECONDARY_DARK
-    GroupFontColor $X_DARKGREY
+    GroupFontColor $DARK_TEXT
     GroupHeaderFontColor $WHITE
     GroupHeaderFontStyle "Normal"
     ''
-    DividerBackgroundColor $X_DARKGREEN
-    DividerBorderColor $X_DARKGREY
-    DividerBorderThickness 2
-    DividerFontColor $X_DARKGREY
+    DividerBorderColor $SECONDARY_DARK
+    DividerBorderThickness 1
+    DividerFontColor $DARK_TEXT
     DividerFontStyle "Normal"
     ''
-    ParticipantBackgroundColor $X_BLUE
-    ParticipantFontColor $WHITE
+    ParticipantBackgroundColor $PRIMARY
+    ParticipantFontColor $PRIMARY_TEXT
+    ParticipantBorderColor $PRIMARY
     ''
-    ReferenceBackgroundColor $WHITE
-    ReferenceBorderColor $X_DARKGREY
-    ReferenceFontColor $X_DARKGREY
-    ReferenceHeaderBackgroundColor $X_DARKGREEN
+    ReferenceBorderColor $INFO
+    ReferenceFontColor $DARK_TEXT
     ''
-    StereotypeFontColor $PRIMARY_TEXT
+    StereotypeFontColor $DARK_TEXT
     ' How messages are aligned (left, right, center)
     MessageAlign center
     ' Alignment for participant names in the header
@@ -335,8 +340,8 @@ skinparam sequence {
 !startsub partition
 
 skinparam partition {
-    BorderColor $PRIMARY
-    FontColor $PRIMARY_DARK
+    BorderColor $PRIMARY_DARK
+    FontColor $DARK_TEXT
     BackgroundColor $BGCOLOR
 }
 !endsub
@@ -366,8 +371,8 @@ skinparam entity {
 
 skinparam boundary {
     $primary_scheme()
-    BackgroundColor $X_LIGHTGREEN
-    BorderColor $X_DARKGREEN
+    BackgroundColor $X_GREENACC
+    BorderColor $X_GREEN
 }
 !endsub
 
@@ -375,7 +380,7 @@ skinparam boundary {
 
 skinparam agent {
     BackgroundColor #orange
-    BorderColor $X_LIGHTGREEN
+    BorderColor $X_GREENACC
     FontColor #333333
 }
 !endsub
@@ -384,9 +389,8 @@ skinparam agent {
 
 skinparam note {
     BorderThickness 1
-    BackgroundColor $INFO_LIGHT
-    BorderColor $INFO
-    FontColor $X_DARKGREY
+    BorderColor $SECONDARY
+    FontColor $DARK_TEXT
     ' Alignment of text within the note
     TextAlignment left
 }
@@ -435,7 +439,7 @@ skinparam storage {
 skinparam node {
     BackgroundColor $BGCOLOR
     BorderColor $PRIMARY_LIGHT
-    FontColor $PRIMARY_TEXT
+    FontColor $DARK_TEXT
 }
 !endsub
 
@@ -444,7 +448,7 @@ skinparam node {
 skinparam cloud {
     BackgroundColor #F2FCFE-#eeeeee
     BorderColor $F2FCFE
-    FontColor $PRIMARY_TEXT
+    FontColor $DARK_TEXT
 }
 !endsub
 
@@ -460,11 +464,11 @@ skinparam database {
 
 skinparam class {
     $primary_scheme()
-    HeaderBackgroundColor $PRIMARY_LIGHT
-    StereotypeFontColor $DARK
+    HeaderBackgroundColor $PRIMARY
+    StereotypeFontColor $DARK_TEXT
     StereotypeFontSize 9
     BorderThickness 1
-    AttributeFontColor $DARK
+    AttributeFontColor $DARK_TEXT
     AttributeFontSize 11
     ' Alignment of attributes within the class
     AttributeIconSize 0
@@ -491,8 +495,8 @@ skinparam object {
 skinparam usecase {
     $primary_scheme()
     BorderThickness 1
-    BorderColor $X_LIGHTBLUE
-    BackgroundColor $X_LIGHTBLUE
+    BorderColor $X_BLUE30
+    BackgroundColor $X_BLUE30
     StereotypeFontColor $PRIMARY
 }
 !endsub
@@ -503,7 +507,7 @@ skinparam rectangle {
     $primary_scheme()
     BackgroundColor $BGCOLOR
     BorderThickness 1
-    FontColor $PRIMARY_DARK
+    FontColor $DARK_TEXT
     FontStyle Normal
     StereotypeFontColor $PRIMARY_LIGHT
 }
@@ -513,7 +517,6 @@ skinparam rectangle {
 
 skinparam package {
     $primary_scheme()
-    BackgroundColor $WHITE
     BorderColor $PRIMARY_DARK
     BorderThickness 2
     ' Styling for the package title
@@ -546,9 +549,9 @@ skinparam frame {
 skinparam state {
     $primary_scheme()
     BorderColor $PRIMARY_DARK
-    StartColor $INFO
-    EndColor $INFO
-    AttributeFontColor $PRIMARY_TEXT
+    StartColor $PRIMARY_DARK
+    EndColor $PRIMARY_DARK
+    AttributeFontColor $DARK_TEXT
     AttributeFontSize 11
     ' Specific arrow styling for state diagrams
     ArrowColor $PRIMARY_DARK
@@ -611,7 +614,7 @@ skinparam timing {
     ' General styling for Timing diagrams
     $primary_scheme()
     ' Font color for timing labels
-    FontColor $PRIMARY_TEXT
+    FontColor $DARK_TEXT
     ' Background color for the timeline itself
     BackgroundColor $BGCOLOR
 }
@@ -620,9 +623,9 @@ skinparam timing {
 !startsub json
 skinparam json {
     ' Styling for keys in JSON diagrams
-    KeyFontColor $X_AUBERGINE
+    KeyFontColor $X_PURPLE
     ' Styling for values in JSON diagrams
-    ValueFontColor $PRIMARY_TEXT
+    ValueFontColor $DARK_TEXT
     ' Styling for arrows/lines
     ArrowColor $PRIMARY_DARK
 }
@@ -631,9 +634,9 @@ skinparam json {
 !startsub yaml
 skinparam yaml {
     ' Styling for keys in YAML diagrams
-    KeyFontColor $X_AUBERGINE
+    KeyFontColor $X_PURPLE
     ' Styling for values in YAML diagrams
-    ValueFontColor $PRIMARY_TEXT
+    ValueFontColor $DARK_TEXT
     ' Styling for arrows/lines
     ArrowColor $PRIMARY_DARK
 }
