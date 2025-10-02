@@ -82,6 +82,22 @@ skinparam useBetaStyle false
     BorderColor $PRIMARY_DARK
     BackgroundColor $PRIMARY
 !endprocedure
+
+!procedure $secondary_scheme()
+    FontColor $SECONDARY_TEXT
+    BorderColor $SECONDARY_DARK
+    BackgroundColor $SECONDARY
+!endprocedure
+
+!procedure $primary_scheme_dark_text()
+    $primary_scheme()
+    FontColor $DARK_TEXT
+!endprocedure
+
+!procedure $secondary_scheme_dark_text()
+    $secondary_scheme()
+    FontColor $DARK_TEXT
+!endprocedure
 ''
 '' Style settings
 ''
@@ -108,9 +124,8 @@ skinparam useBetaStyle false
     LineThickness 0
   }
   groupHeader {
-    BackgroundColor $SECONDARY
-    FontColor $INFO
-    FontStyle bold
+    BackgroundColor $PRIMARY
+    FontColor $PRIMARY_TEXT
   }
   header {
     LineThickness 0
@@ -127,13 +142,13 @@ skinparam useBetaStyle false
   }
   nwdiagDiagram {
     network {
-        $primary_scheme()    
+            
         LineColor $PRIMARY
         LineThickness 1.0
         FontColor $PRIMARY_TEXT
     }
     server {
-        $primary_scheme()
+        
     }
     arrow {
         FontColor $DARK_TEXT
@@ -247,7 +262,7 @@ skinparam swimlane {
 !startsub activity
 
 skinparam activity {
-    $primary_scheme()
+    
     BarColor $SUCCESS
     StartColor $PRIMARY_DARK
     EndColor $PRIMARY_DARK
@@ -263,7 +278,7 @@ skinparam activity {
 !startsub participant
 
 skinparam participant {
-    $primary_scheme()
+    
     ParticipantBorderThickness 2
 }
 !endsub
@@ -271,9 +286,8 @@ skinparam participant {
 !startsub actor
 
 skinparam actor {
-    $primary_scheme()
-    BackgroundColor $SECONDARY
-    BorderColor $SECONDARY
+    $primary_scheme_dark_text()
+    BorderColor $PRIMARY
     ' Style for actor stereotype labels
     StereotypeFontColor $DARK_TEXT
 }
@@ -348,30 +362,31 @@ skinparam partition {
 !startsub collections
 
 skinparam collections {
-    $primary_scheme()
+    
 }
 !endsub
 
 !startsub control
 
 skinparam control {
-    $primary_scheme()
+    $secondary_scheme_dark_text()
+    BorderColor $SECONDARY
 }
 !endsub
 
 !startsub entity
 
 skinparam entity {
-    $primary_scheme()
+    $secondary_scheme_dark_text()
+    BorderColor $SECONDARY
 }
 !endsub
 
 !startsub boundary
 
 skinparam boundary {
-    $primary_scheme()
-    BackgroundColor $X_GREENACC
-    BorderColor $X_GREEN
+    $secondary_scheme_dark_text()
+    BorderColor $SECONDARY
 }
 !endsub
 
@@ -454,7 +469,7 @@ skinparam cloud {
 !startsub database
 
 skinparam database {
-    $primary_scheme()
+    
     BackgroundColor  $BGCOLOR
 }
 !endsub
@@ -462,7 +477,7 @@ skinparam database {
 !startsub class
 
 skinparam class {
-    $primary_scheme()
+    
     HeaderBackgroundColor $PRIMARY
     StereotypeFontColor $DARK_TEXT
     StereotypeFontSize 9
@@ -492,7 +507,7 @@ skinparam object {
 !startsub usecase
 
 skinparam usecase {
-    $primary_scheme()
+    
     BorderThickness 1
     BorderColor $X_BLUE30
     BackgroundColor $X_BLUE30
@@ -503,7 +518,7 @@ skinparam usecase {
 !startsub rectangle
 
 skinparam rectangle {
-    $primary_scheme()
+    
     BackgroundColor $BGCOLOR
     BorderThickness 1
     FontColor $DARK_TEXT
@@ -515,7 +530,7 @@ skinparam rectangle {
 !startsub package
 
 skinparam package {
-    $primary_scheme()
+    
     BorderColor $PRIMARY_DARK
     BorderThickness 2
     ' Styling for the package title
@@ -546,7 +561,7 @@ skinparam frame {
 !startsub state
 
 skinparam state {
-    $primary_scheme()
+    
     BorderColor $PRIMARY_DARK
     StartColor $PRIMARY_DARK
     EndColor $PRIMARY_DARK
@@ -560,7 +575,7 @@ skinparam state {
 !startsub queue
 
 skinparam queue {
-    $primary_scheme()
+    
 }
 !endsub
 
@@ -585,7 +600,7 @@ skinparam file {
 !startsub stack
 
 skinparam stack {
-    $primary_scheme()
+    
 }
 !endsub
 
@@ -595,14 +610,14 @@ skinparam stack {
 !startsub archimate
 skinparam archimate {
     ' General styling for Archimate diagrams
-    $primary_scheme()
+    
 }
 !endsub
 
 !startsub mindmap
 skinparam mindmap {
     ' General styling for MindMap diagrams
-    $primary_scheme()
+    
     ' Arrow styling for MindMap
     ArrowColor $PRIMARY_DARK
 }
@@ -611,7 +626,7 @@ skinparam mindmap {
 !startsub timing
 skinparam timing {
     ' General styling for Timing diagrams
-    $primary_scheme()
+    
     ' Font color for timing labels
     FontColor $DARK_TEXT
     ' Background color for the timeline itself
