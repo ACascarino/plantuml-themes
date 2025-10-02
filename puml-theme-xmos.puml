@@ -344,7 +344,7 @@ skinparam sequence {
     ''
     StereotypeFontColor $DARK_TEXT
     ' How messages are aligned (left, right, center)
-    MessageAlign center
+    MessageAlign left
     ' Alignment for participant names in the header
     ParticipantAlign center
 }
