@@ -272,8 +272,8 @@ skinparam participant {
 
 skinparam actor {
     $primary_scheme()
-    BackgroundColor $X_GREENACC
-    BorderColor $X_GREENACC
+    BackgroundColor $SECONDARY
+    BorderColor $SECONDARY
     ' Style for actor stereotype labels
     StereotypeFontColor $DARK_TEXT
 }
@@ -301,9 +301,8 @@ skinparam sequence {
     StartColor $PRIMARY
     EndColor $PRIMARY
     ''
-    BoxBackgroundColor $PRIMARY
-    BoxBorderColor $PRIMARY_DARK
-    BoxFontColor $BLACK
+    BoxBorderColor $PRIMARY
+    BoxFontColor $DARK_TEXT
     ''
     ArrowFontColor $DARK_TEXT
     ''
