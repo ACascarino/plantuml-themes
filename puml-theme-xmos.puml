@@ -34,7 +34,7 @@ skinparam useBetaStyle false
 !$FGCOLOR = $DARK
 
 !$PRIMARY = $X_BLUE
-!$PRIMARY_LIGHT = $X_BLUE30
+!$PRIMARY_LIGHT = $X_BLUE60
 !$PRIMARY_DARK = $X_DARKGREY
 !$PRIMARY_TEXT = $WHITE
 
@@ -79,12 +79,14 @@ skinparam useBetaStyle false
 
 !procedure $primary_scheme()
     FontColor $PRIMARY_TEXT
-    BorderColor $PRIMARY_DARK
+    StereotypeFontColor $PRIMARY_TEXT
+    BorderColor $PRIMARY_LIGHT
     BackgroundColor $PRIMARY
 !endprocedure
 
 !procedure $secondary_scheme()
     FontColor $SECONDARY_TEXT
+    StereotypeFontColor $SECONDARY_TEXT
     BorderColor $SECONDARY_DARK
     BackgroundColor $SECONDARY
 !endprocedure
@@ -92,11 +94,13 @@ skinparam useBetaStyle false
 !procedure $primary_scheme_dark_text()
     $primary_scheme()
     FontColor $DARK_TEXT
+    StereotypeFontColor $DARK_TEXT
 !endprocedure
 
 !procedure $secondary_scheme_dark_text()
     $secondary_scheme()
     FontColor $DARK_TEXT
+    StereotypeFontColor $DARK_TEXT
 !endprocedure
 ''
 '' Style settings
@@ -278,8 +282,7 @@ skinparam activity {
 !startsub participant
 
 skinparam participant {
-    
-    ParticipantBorderThickness 2
+    $primary_scheme()
 }
 !endsub
 
@@ -287,9 +290,6 @@ skinparam participant {
 
 skinparam actor {
     $primary_scheme_dark_text()
-    BorderColor $PRIMARY
-    ' Style for actor stereotype labels
-    StereotypeFontColor $DARK_TEXT
 }
 !endsub
 
@@ -335,18 +335,12 @@ skinparam sequence {
     DividerFontColor $DARK_TEXT
     DividerFontStyle "Normal"
     ''
-    ParticipantBackgroundColor $PRIMARY
-    ParticipantFontColor $PRIMARY_TEXT
-    ParticipantBorderColor $PRIMARY
-    ''
     ReferenceBorderColor $INFO
     ReferenceFontColor $DARK_TEXT
     ''
     StereotypeFontColor $DARK_TEXT
     ' How messages are aligned (left, right, center)
     MessageAlign left
-    ' Alignment for participant names in the header
-    ParticipantAlign center
 }
 !endsub
 
@@ -362,31 +356,28 @@ skinparam partition {
 !startsub collections
 
 skinparam collections {
-    
+    $primary_scheme()
 }
 !endsub
 
 !startsub control
 
 skinparam control {
-    $secondary_scheme_dark_text()
-    BorderColor $SECONDARY
+    $primary_scheme_dark_text()
 }
 !endsub
 
 !startsub entity
 
 skinparam entity {
-    $secondary_scheme_dark_text()
-    BorderColor $SECONDARY
+    $primary_scheme_dark_text()
 }
 !endsub
 
 !startsub boundary
 
 skinparam boundary {
-    $secondary_scheme_dark_text()
-    BorderColor $SECONDARY
+    $primary_scheme_dark_text()
 }
 !endsub
 
@@ -469,9 +460,7 @@ skinparam cloud {
 !startsub database
 
 skinparam database {
-    
-    $secondary_scheme_dark_text()
-    BackgroundColor  $BGCOLOR
+    $primary_scheme_dark_text()
 }
 !endsub
 
@@ -576,7 +565,7 @@ skinparam state {
 !startsub queue
 
 skinparam queue {
-    
+    $primary_scheme()
 }
 !endsub
 
