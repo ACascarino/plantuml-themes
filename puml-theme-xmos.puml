@@ -470,6 +470,7 @@ skinparam cloud {
 
 skinparam database {
     
+    $secondary_scheme_dark_text()
     BackgroundColor  $BGCOLOR
 }
 !endsub
