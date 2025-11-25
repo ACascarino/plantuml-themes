@@ -239,6 +239,8 @@ skinparam stereotype {
     EBorderColor $PRIMARY_DARK
     NBackgroundColor $X_STEEL
     NBorderColor $PRIMARY_DARK
+    SBackgroundColor $X_BLUEACC
+    SBorderColor $PRIMARY_DARK
 }
 skinparam title {
     FontColor                    $DARK_TEXT
