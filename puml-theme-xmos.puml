@@ -229,7 +229,7 @@ skinparam guillemet              false
 
 skinparam ArrowColor             $PRIMARY_DARK
 skinparam stereotype {
-    CBackgroundColor $X_RED
+    CBackgroundColor $X_BLUEACC
     CBorderColor $PRIMARY_DARK
     ABackgroundColor $X_ORANGE
     ABorderColor $PRIMARY_DARK
@@ -469,14 +469,13 @@ skinparam database {
 skinparam class {
     
     HeaderBackgroundColor $PRIMARY
+    FontColor $WHITE
     StereotypeFontColor $DARK_TEXT
     StereotypeFontSize 9
     BorderThickness 1
     AttributeFontColor $DARK_TEXT
     AttributeFontSize 11
-    ' Alignment of attributes within the class
     AttributeIconSize 0
-    ' Minimum width of a class diagram
     MinClassWidth 100
 }
 !endsub
